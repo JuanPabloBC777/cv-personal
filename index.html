@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Pablo Barrientos Cámbara | Supply Chain & Funds Management Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #f97316;
+            --accent-light: #fb923c;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient-1: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --gradient-2: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 0 5%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-text .highlight {
+            color: var(--accent-light);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(249, 115, 22, 0.3);
+            z-index: -1;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .profile-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 4rem;
+            color: white;
+            border: 5px solid rgba(255,255,255,0.2);
+        }
+
+        .profile-info h3 {
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+        }
+
+        /* About Section */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h4 i {
+            color: var(--accent);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            color: var(--accent);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 2rem;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -3rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -3rem;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--gradient-2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-content .description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-content .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(30, 58, 138, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Expertise Cards */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-2);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .expertise-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Languages & Software */
+        .tools-section {
+            background: var(--dark);
+            color: white;
+            padding: 6rem 5%;
+        }
+
+        .tools-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .languages-box h3, .software-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-light);
+        }
+
+        .language-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .language-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .language-progress {
+            height: 100%;
+            background: var(--gradient-2);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .software-item {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .software-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .software-item i {
+            font-size: 2rem;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .software-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Emergency Experience */
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .emergency-card {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergency-card::before {
+            content: 'L3';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 6rem;
+            font-weight: 800;
+            opacity: 0.1;
+        }
+
+        .emergency-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .emergency-card p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .emergency-card .year {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* References */
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .reference-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .reference-card h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-card .title {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .reference-card .email {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+
+            .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -50px;
+                right: auto;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">JPBC</a>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#expertise">Especialización</a></li>
+                <li><a href="#emergencies">Emergencias</a></li>
+                <li><a href="#references">Referencias</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Juan Pablo <span class="highlight">Barrientos Cámbara</span></h1>
+                <h2>Especialista en Supply Chain, Funds Management & Logística Humanitaria</h2>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px;">
+                    Profesional con más de 35 años de experiencia en gestión financiera, 
+                    logística internacional y coordinación de emergencias L3. 
+                    Especialista en WFP con expertise en presupuestos, herramientas corporativas 
+                    y optimización de procesos supply chain.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">35+</span>
+                        <span class="stat-label">Años Exp.</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Años Int'l UN</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">L3</span>
+                        <span class="stat-label">Emergencias</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Contactar
+                    </a>
+                    <a href="#experience" class="btn btn-secondary">
+                        <i class="fas fa-briefcase"></i> Ver Experiencia
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h3>Juan Pablo Barrientos</h3>
+                        <p>Consultor Supply Chain Officer</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Guatemala City, Guatemala</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>juan.barrientos.pma@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+502 5438 4970</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <span>Disponible para consultorías remotas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header fade-in">
+            <h2>Sobre Mí</h2>
+            <p>Profesional multidisciplinario con trayectoria internacional en organizaciones humanitarias y sector privado</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <p>
+                    Soy un profesional guatemalteco con amplia experiencia en gestión de supply chain, 
+                    administración de fondos y logística humanitaria. Mi carrera incluye 9 años de 
+                    experiencia internacional con el Programa Mundial de Alimentos (WFP) de las Naciones Unidas, 
+                    donde me he especializado en el desarrollo de herramientas corporativas, gestión de presupuestos 
+                    y coordinación de operaciones en emergencias de nivel L3.
+                </p>
+                <p>
+                    Mi expertise abarca desde la implementación de sistemas WINGS y COMPAS hasta el 
+                    desarrollo de herramientas de monitoreo de costos de transferencia de alimentos (FTC). 
+                    He trabajado en múltiples contextos de emergencia incluyendo Haití, Libia, Sudán del Sur 
+                    y Siria, demostrando capacidad de adaptación y liderazgo en situaciones de alta presión.
+                </p>
+                <p>
+                    Además de mi experiencia humanitaria, cuento con 19 años en el sector privado 
+                    como Gerente Administrativo y Financiero, donde desarrollé habilidades en 
+                    planificación estratégica, control de costos y gestión de equipos multidisciplinarios.
+                </p>
+            </div>
+
+            <div class="skills-container fade-in">
+                <div class="skill-category">
+                    <h4><i class="fas fa-chart-line"></i> Gestión Financiera</h4>
+                    <ul class="skill-list">
+                        <li>Presupuestos Supply Chain</li>
+                        <li>Funds Management (FTC/LTSH)</li>
+                        <li>Control de gastos y costos</li>
+                        <li>Reportes financieros corporativos</li>
+                        <li>Análisis de variaciones</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-cogs"></i> Herramientas & Sistemas</h4>
+                    <ul class="skill-list">
+                        <li>WINGS I & II</li>
+                        <li>COMPAS & LESS</li>
+                        <li>Business Objects (BO)</li>
+                        <li>PROVISION BPM</li>
+                        <li>MS Excel Avanzado</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-truck"></i> Logística & Supply Chain</h4>
+                    <ul class="skill-list">
+                        <li>Gestión de transporte</li>
+                        <li>Administración de almacenes</li>
+                        <li>Coordinación de emergencias</li>
+                        <li>Procurement internacional</li>
+                        <li>Distribución humanitaria</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-users"></i> Liderazgo</h4>
+                    <ul class="skill-list">
+                        <li>Gestión de equipos remotos</li>
+                        <li>Capacitación y transferencia</li>
+                        <li>Coordinación interagencial</li>
+                        <li>Comunicación multicultural</li>
+                        <li>Resolución de problemas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="section" style="background: #f1f5f9;">
+        <div class="section-header fade-in">
+            <h2>Trayectoria Profesional</h2>
+            <p>Experiencia internacional en WFP y sector privado</p>
+        </div>
+
+        <div class="timeline">
+            <!-- WFP HQ Current -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">2024 - Presente</span>
+                    <h3>Consultant - Supply Chain Officer</h3>
+                    <div class="company">
+                        <i class="fas fa-globe"></i> WFP Headquarters, Roma, Italia (Remoto)
+                    </div>
+                    <div class="description">
+                        <strong>Unidad:</strong> SCDLOD DBASE Budget and Monitoring<br>
+                        Lidero el desarrollo y mantenimiento de herramientas corporativas SC FTC, 
+                        incluyendo el Supply Chain Matrix Budget Tool y SC FTC Monitoring Tool. 
+                        Coordinación de planificación presupuestaria y monitoreo de fondos para 
+                        oficinas de país, asegurando transparencia y optimización de recursos.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Funds Management</span>
+                        <span class="tag">FTC</span>
+                        <span class="tag">Budget Tools</span>
+                        <span class="tag">Remote Work</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WFP HQ Previous -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">2021 - 2024</span>
+                    <h3>Consultant - Supply Chain Officer</h3>
+                    <div class="company">
+                        <i class="fas fa-globe"></i> WFP Headquarters, Roma, Italia (Remoto)
+                    </div>
+                    <div class="description">
+                        <strong>Unidad:</strong> SCOLO/SCDLOD DBASE<br>
+                        Implementación de supply chain budget tool y transferencia de conocimiento 
+                        técnico a TEC. Soporte regular a staff de RB/CO/HQ. Desarrollo de procesos 
+                        de planificación presupuestaria y materiales de capacitación.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">SC Budget Tool</span>
+                        <span class="tag">Knowledge Transfer</span>
+                        <span class="tag">Global Consolidated Reports</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFACASA -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">2018 - 2021</span>
+                    <h3>Administrative and Financial Manager</h3>
+                    <div class="company">
+                        <i class="fas fa-building"></i> PROFACASA, Guatemala
+                    </div>
+                    <div class="description">
+                        Supervisión de operaciones financieras, planificación presupuestaria, 
+                        gestión de flujo de caja, reportes financieros y KPIs. Control de costos, 
+                        gestión de riesgos, compliance fiscal y liderazgo de equipos contables.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Financial Planning</span>
+                        <span class="tag">Cost Control</span>
+                        <span class="tag">Team Leadership</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- South Sudan -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">2017 - 2018</span>
+                    <h3>SC Funds Management Logistics Officer</h3>
+                    <div class="company">
+                        <i class="fas fa-hand-holding-heart"></i> WFP South Sudan, Juba
+                    </div>
+                    <div class="description">
+                        Asignación internacional en contexto de emergencia. Gestión de fondos para 
+                        operaciones logísticas, budgeting, control de costos, reporting financiero, 
+                        procurement y manejo de inventarios. Coordinación con proveedores y 
+                        aseguramiento de compliance en auditorías.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Emergency Response</span>
+                        <span class="tag">Field Operations</span>
+                        <span class="tag">Cash Flow Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WFP HQ Earlier -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">2012 - 2016</span>
+                    <h3>Logistics Officer (International Consultant)</h3>
+                    <div class="company">
+                        <i class="fas fa-globe"></i> WFP Headquarters, Roma, Italia
+                    </div>
+                    <div class="description">
+                        <strong>Unidad:</strong> BSU (Business Support Unit) - LTSH<br>
+                        Desarrollo de herramientas LTSH Funds Management, LTSH Monitoring Tool, 
+                        Quarterly Reports, Supply Chain Multitier Matrix. Colaboración con unidades 
+                        de Shipping, Aviation, Procurement, CBT y Commodity Accounting.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">LTSH</span>
+                        <span class="tag">Tool Development</span>
+                        <span class="tag">Business Process</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guatemala LTSH -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">2005 - 2012</span>
+                    <h3>LTSH Senior Logistics Assistant (GS6)</h3>
+                    <div class="company">
+                        <i class="fas fa-flag"></i> WFP Guatemala
+                    </div>
+                    <div class="description">
+                        Primera implementación LTSH en Guatemala y región ODP. Entrenamiento WINGS, 
+                        transición a WINGS II. LPE para región ODP. Respuesta a emergencias: 
+                        Terremoto Haití (L3), Emergencia Libia (L3), soporte remoto Siria e Iraq.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">L3 Emergency</span>
+                        <span class="tag">Regional LPE</span>
+                        <span class="tag">WINGS Implementation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Private Sector Early -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <span class="timeline-date">1992 - 2005</span>
+                    <h3>Roles de Liderazgo Sector Privado</h3>
+                    <div class="company">
+                        <i class="fas fa-industry"></i> Guatemala
+                    </div>
+                    <div class="description">
+                        Trayectoria en TECATE Maronco (General Manager), BANCO CHN (IT Systems Manager), 
+                        YALE (Sales Manager Assistant), PROINDEXSA (Imports & Exports Assistant). 
+                        Experiencia en distribución, sistemas bancarios, ventas industriales y comercio internacional.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">General Management</span>
+                        <span class="tag">IT Systems</span>
+                        <span class="tag">International Trade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="section">
+        <div class="section-header fade-in">
+            <h2>Áreas de Especialización</h2>
+            <p>Competencias técnicas desarrolladas a lo largo de 35 años de carrera</p>
+        </div>
+
+        <div class="expertise-grid">
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Funds Management</h3>
+                <p>
+                    Especialista en gestión de fondos FTC (Food Transfer Costs) y LTSH (Local Transport, 
+                    Storage & Handling). Desarrollo de herramientas de monitoreo, reportes globales 
+                    consolidados y optimización de utilización de recursos.
+                </p>
+            </div>
+
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Budget Planning & Control</h3>
+                <p>
+                    Planificación presupuestaria supply chain, revisiones de matriz de costos, 
+                    análisis de gastos vs presupuesto, prevención de superávit/déficit y cierre 
+                    de cuentas de fin de año.
+                </p>
+            </div>
+
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Corporate Tools Development</h3>
+                <p>
+                    Diseño e implementación de herramientas corporativas: SC Budget Tool, 
+                    SC FTC Monitoring Tool, SC Corridor Budget Tool. Transferencia de conocimiento 
+                    técnico y capacitación a usuarios globales.
+                </p>
+            </div>
+
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3>Emergency Response (L3)</h3>
+                <p>
+                    Experiencia en emergencias nivel L3: Haití, Libia, Sudán del Sur, Siria, Iraq. 
+                    Capacidad de despliegue rápido, coordinación de recursos y gestión de operaciones 
+                    en contextos de alta vulnerabilidad.
+                </p>
+            </div>
+
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Data Analytics & Reporting</h3>
+                <p>
+                    Análisis de datos supply chain, elaboración de reportes ejecutivos, 
+                    dashboards de performance, Business Objects (BO), y herramientas de 
+                    visualización para toma de decisiones.
+                </p>
+            </div>
+
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Training & Capacity Building</h3>
+                <p>
+                    Desarrollo de materiales de capacitación, guías técnicas, simulaciones 
+                    tutorías (INFOPACK) y transferencia de conocimiento a equipos en 
+                    Regional Bureaus y Country Offices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages & Software -->
+    <section class="tools-section">
+        <div class="tools-container">
+            <div class="section-header fade-in" style="color: white;">
+                <h2 style="color: white;">Idiomas & Software</h2>
+                <p style="color: rgba(255,255,255,0.8);">Competencias lingüísticas y herramientas tecnológicas</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="languages-box fade-in">
+                    <h3>Idiomas</h3>
+
+                    <div class="language-item">
+                        <div class="language-header">
+                            <span>Español</span>
+                            <span>Nativo/Fluido</span>
+                        </div>
+                        <div class="language-bar">
+                            <div class="language-progress" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-header">
+                            <span>Inglés</span>
+                            <span>Fluido</span>
+                        </div>
+                        <div class="language-bar">
+                            <div class="language-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-header">
+                            <span>Italiano</span>
+                            <span>Conocimiento Básico</span>
+                        </div>
+                        <div class="language-bar">
+                            <div class="language-progress" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="software-box fade-in">
+                    <h3>Software & Plataformas</h3>
+                    <div class="software-grid">
+                        <div class="software-item">
+                            <i class="fas fa-database"></i>
+                            <span>WINGS</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-boxes"></i>
+                            <span>COMPAS</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-truck-loading"></i>
+                            <span>LESS</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Business Objects</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>PROVISION</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-file-excel"></i>
+                            <span>MS Excel Avanzado</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-file-word"></i>
+                            <span>MS Office</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-image"></i>
+                            <span>Photoshop</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-info-circle"></i>
+                            <span>INFOPACK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Experience -->
+    <section id="emergencies" class="section">
+        <div class="section-header fade-in">
+            <h2>Experiencia en Emergencias</h2>
+            <p>Despliegue en operaciones de emergencia nivel L3 y respuesta humanitaria</p>
+        </div>
+
+        <div class="emergency-grid">
+            <div class="emergency-card fade-in">
+                <h4><i class="fas fa-hospital"></i> Terremoto Haití</h4>
+                <p>Emergencia L3 - Focal point LTSH desplegado por 6 meses en respuesta al terremoto devastador.</p>
+                <span class="year">2010</span>
+            </div>
+
+            <div class="emergency-card fade-in">
+                <h4><i class="fas fa-flag"></i> Crisis Libia</h4>
+                <p>Emergencia L3 - Focal point LTSH basado en Egipto y Túnez durante la crisis de gobierno.</p>
+                <span class="year">2011</span>
+            </div>
+
+            <div class="emergency-card fade-in">
+                <h4><i class="fas fa-hand-holding-medical"></i> Sudán del Sur</h4>
+                <p>Asignación internacional como SC Funds Management Logistics Officer en Juba.</p>
+                <span class="year">2017-2018</span>
+            </div>
+
+            <div class="emergency-card fade-in">
+                <h4><i class="fas fa-phone"></i> Siria & Iraq</h4>
+                <p>Soporte remoto LTSH a operaciones de emergencia en conflictos regionales.</p>
+                <span class="year">2012-2013</span>
+            </div>
+
+            <div class="emergency-card fade-in">
+                <h4><i class="fas fa-cloud-showers-heavy"></i> Tormenta Stan</h4>
+                <p>Primera implementación LTSH en Guatemala durante respuesta a emergencia natural.</p>
+                <span class="year">2005</span>
+            </div>
+
+            <div class="emergency-card fade-in">
+                <h4><i class="fas fa-virus"></i> Sierra Leona & Liberia</h4>
+                <p>Asistencia remota a emergencias en África Occidental.</p>
+                <span class="year">2011</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section id="references" class="section" style="background: #f1f5f9;">
+        <div class="section-header fade-in">
+            <h2>Referencias Profesionales</h2>
+            <p>Contactos directos de supervisores y colegas en WFP</p>
+        </div>
+
+        <div class="references-grid">
+            <div class="reference-card fade-in">
+                <h4>Selamawit Biadghlign</h4>
+                <div class="title">Head of Commodity Accounting and Funds Management<br>WFP-HQ, Rome</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> selamawit.biadghlign@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Giovanni Magistro</h4>
+                <div class="title">Team Leader of Funds Management<br>WFP-HQ, Rome</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> giovanni.magistro@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Matthew Dee</h4>
+                <div class="title">Deputy Director SCDL<br>WFP-HQ, Rome</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> matthew.dee@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Jelena Milosevic</h4>
+                <div class="title">Deputy Director OED<br>WFP-HQ, Rome</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> jelena.milosevic@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Vladimir Jovcev</h4>
+                <div class="title">Deputy Country Director<br>Gaza Operations / RBC Palestine</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> vladimir.jovcev@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Nenad Loncarevic</h4>
+                <div class="title">Regional Logistics Officer ODP<br>WFP, Panama</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> nenad.loncarevic@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Mietek Maj</h4>
+                <div class="title">Chief Humanitarian Logistics Services<br>WFP, Rome</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> mietek.maj@wfp.org
+                </div>
+            </div>
+
+            <div class="reference-card fade-in">
+                <h4>Andrew Stanhope</h4>
+                <div class="title">Country Director<br>Guatemala Country Office</div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i> andrew.stanhope@wfp.org
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-header fade-in">
+            <h2>Contacto</h2>
+            <p>Disponible para consultorías a corto plazo, proyectos remotos y oportunidades a largo plazo</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                    <i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Email</h4>
+                    <p style="color: var(--gray);">juan.barrientos.pma@gmail.com</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                    <i class="fas fa-phone" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Teléfono</h4>
+                    <p style="color: var(--gray);">+502 5438 4970</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                    <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Ubicación</h4>
+                    <p style="color: var(--gray);">Guatemala City, Guatemala<br>(Trabajo Remoto)</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 3rem; border-radius: 30px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">Intereses Laborales</h3>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.8rem 1.5rem; border-radius: 30px;">
+                        <i class="fas fa-briefcase"></i> Consultorías Corto Plazo
+                    </span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.8rem 1.5rem; border-radius: 30px;">
+                        <i class="fas fa-file-contract"></i> Contratos Largo Plazo
+                    </span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.8rem 1.5rem; border-radius: 30px;">
+                        <i class="fas fa-globe"></i> Trabajo Remoto Global
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">JPBC</div>
+            <p class="footer-text">
+                Supply Chain & Funds Management Specialist<br>
+                35+ años de experiencia transformando operaciones logísticas y financieras
+            </p>
+            <div class="social-links">
+                <a href="mailto:juan.barrientos.pma@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+50254384970"><i class="fas fa-phone"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-skype"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Juan Pablo Barrientos Cámbara. Todos los derechos reservados.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    Última actualización: Octubre 2025 | Index: 08805763
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate language bars on scroll
+        const languageBars = document.querySelectorAll('.language-progress');
+        const barsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        languageBars.forEach(bar => barsObserver.observe(bar));
+    </script>
+</body>
+</html>
